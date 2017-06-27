@@ -1,4 +1,3 @@
-
 ledBuffer:fill(colOff[1],colOff[2],colOff[3])
 for j=0,4 do
 	for i=1,11 do

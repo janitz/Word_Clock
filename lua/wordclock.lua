@@ -4,12 +4,14 @@ for i=1,114 do
 end
 
 tim=rtctime.epoch2cal(rtctime.get()+timOffset)
+if(esIst)then
+	for i=1,2 do chars[i]=1 end --es
+	for i=4,6 do chars[i]=1 end --ist
+end
 
-for i=1,2 do chars[i]=1 end --es
-for i=4,6 do chars[i]=1 end --ist
-
-for i=108,110 do chars[i]=1 end --uhr
-
+if(uhr)then
+	for i=108,110 do chars[i]=1 end --uhr
+end
 if(tim.min%5>0)then
 	for i=111,tim.min%5+110 do chars[i]=1 end
 end
@@ -65,6 +67,7 @@ end
 
 if(h==1)then
 	for i=69,71 do chars[i]=1 end --ein
+	if(not uhr) then chars[72]=1 end --s
 elseif(h==2)then
 	for i=67,70 do chars[i]=1 end --zwei
 elseif(h==3)then

@@ -71,19 +71,6 @@ local handle_request=function(conn,request)
 			_GET[k]=v
 		end
 	end
-	
-	if(_GET.cmd)then
-		cmd=_GET.cmd
-		if(cmd=="Color")then
-			if(_GET.hue and _GET.sat and _GET.lum)then
-				newCol.h=tonumber(_GET.hue)
-				newCol.s=tonumber(_GET.sat)
-				newCol.l=tonumber(_GET.lum)
-			end
-		end
-	end
-	
-	
 	if(_GET.ssid and _GET.pwd)then
 		ssid=unescape(_GET.ssid:gsub("+", " "))
 		pwd=unescape(_GET.pwd:gsub("+", " "))
@@ -94,8 +81,13 @@ local handle_request=function(conn,request)
 		node.restart()	
 	end
 
-	if(_GET.speed)then
-		animSpeed=tonumber(_GET.speed)	
+	if(_GET.r1 and _GET.g1 and _GET.b1)then
+		colOn={tonumber(_GET.g1),tonumber(_GET.r1),tonumber(_GET.b1)}
+		dofile("char2led.lua")
+	end
+	if(_GET.r2 and _GET.g2 and _GET.b2)then
+		colOff={tonumber(_GET.g2),tonumber(_GET.r2),tonumber(_GET.b2)}
+		dofile("char2led.lua")
 	end
 	
 	path = path:lower()
@@ -106,9 +98,9 @@ local handle_request=function(conn,request)
 	elseif(path=="/main.css")then
 		setCt(ct.css)
 		sendFile(conn, responseTxt, "main.css")
-	elseif(path=="/main.min.js")then
+	elseif(path=="/main.js")then
 		setCt(ct.js)
-		sendFile(conn, responseTxt, "main.min.js", currState)
+		sendFile(conn, responseTxt, "main.js", currState)
 	elseif(path=="/apple-touch-icon.png")then
 		setCt(ct.png)
 		sendFile(conn, responseTxt, "apple-touch-icon.png")
