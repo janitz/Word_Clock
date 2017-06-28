@@ -81,17 +81,26 @@ local handle_request=function(conn,request)
 		node.restart()	
 	end
 
-	local colChange=false
+	local settingsChange=false
 	if(_GET.r1 and _GET.g1 and _GET.b1)then
 		colOn={tonumber(_GET.g1),tonumber(_GET.r1),tonumber(_GET.b1)}
-		colChange=true
+		settingsChange=true
 	end
 	if(_GET.r2 and _GET.g2 and _GET.b2)then
 		colOff={tonumber(_GET.g2),tonumber(_GET.r2),tonumber(_GET.b2)}
-		colchange=true
+		settingsChange=true
 	end
+	if(_GET.esist)then
+		esIst=tonumber(_GET.esist)~=0
+		settingsChange=true
+	end
+	if(_GET.uhr)then
+		uhr=tonumber(_GET.uhr)~=0
+		settingsChange=true
+	end
+	
 
-	if(colChange)then
+	if(settingsChange)then
 		dofile("char2led.lc")
 		dofile("set_settings.lc")
 	end
