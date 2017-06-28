@@ -17,6 +17,6 @@ if(string.len(pwd)<8)then
 end
 
 wifi.sta.config(ssid,pwd,1)
-wifi.ap.config({ssid='Star(192.168.0.1)'})
+wifi.ap.config({ssid='WClock(192.168.0.1)'})
 wifi.ap.setip(ip_cfg)
 wifi.ap.dhcp.start()-- important!

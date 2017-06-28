@@ -92,16 +92,8 @@ local handle_request=function(conn,request)
 	end
 
 	if(colChange)then
-		dofile("char2led.lua")
-		file.remove("settings.txt")
-		file.open("settings.txt","w+")
-		file.writeline(colOn[1])
-		file.writeline(colOn[2])
-		file.writeline(colOn[3])
-		file.writeline(colOff[1])
-		file.writeline(colOff[2])
-		file.writeline(colOff[3])
-		file.close()
+		dofile("char2led.lc")
+		dofile("set_settings.lc")
 	end
 
 	path = path:lower()
