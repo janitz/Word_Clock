@@ -81,15 +81,29 @@ local handle_request=function(conn,request)
 		node.restart()	
 	end
 
+	local colChange=false
 	if(_GET.r1 and _GET.g1 and _GET.b1)then
 		colOn={tonumber(_GET.g1),tonumber(_GET.r1),tonumber(_GET.b1)}
-		dofile("char2led.lua")
+		colChange=true
 	end
 	if(_GET.r2 and _GET.g2 and _GET.b2)then
 		colOff={tonumber(_GET.g2),tonumber(_GET.r2),tonumber(_GET.b2)}
-		dofile("char2led.lua")
+		colchange=true
 	end
-	
+
+	if(colChange)then
+		dofile("char2led.lua")
+		file.remove("settings.txt")
+		file.open("settings.txt","w+")
+		file.writeline(colOn[1])
+		file.writeline(colOn[2])
+		file.writeline(colOn[3])
+		file.writeline(colOff[1])
+		file.writeline(colOff[2])
+		file.writeline(colOff[3])
+		file.close()
+	end
+
 	path = path:lower()
 	
 	if(path=='/' or path=="/main" or path=="/main.html")then

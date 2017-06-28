@@ -17,6 +17,17 @@ tmr.alarm(0,1000,0,function()
 	print("starting...")
 	dofile("AP_setup.lc")
 	
+	file.open("settings.txt","r")
+	colOn={
+		tonumber(string.sub(file.readline(),1,-2)),
+		tonumber(string.sub(file.readline(),1,-2)),
+		tonumber(string.sub(file.readline(),1,-2))}
+	colOff={
+		tonumber(string.sub(file.readline(),1,-2)),
+		tonumber(string.sub(file.readline(),1,-2)),
+		tonumber(string.sub(file.readline(),1,-2))}
+	file.close()
+
 	ws2812.init()
 	ledBuffer = ws2812.newBuffer(114, 3)
 	ledBuffer:fill(15,15,15)
