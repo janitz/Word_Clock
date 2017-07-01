@@ -101,6 +101,7 @@ local handle_request=function(conn,request)
 	
 
 	if(settingsChange)then
+		dofile("wordclock.lc")
 		dofile("char2led.lc")
 		dofile("set_settings.lc")
 	end
@@ -115,6 +116,7 @@ local handle_request=function(conn,request)
 		sendFile(conn, responseTxt, "main.css")
 	elseif(path=="/main.js")then
 		setCt(ct.js)
+		responseTxt=responseTxt..'var esIst='..tostring(esIst)..';\r\nvar uhr='..tostring(uhr)..';\r\n\r\n'
 		sendFile(conn, responseTxt, "main.js", currState)
 	elseif(path=="/apple-touch-icon.png")then
 		setCt(ct.png)
