@@ -99,6 +99,17 @@ local handle_request=function(conn,request)
 		settingsChange=true
 	end
 	
+	if(_GET.utc)then
+		timOffset=0
+		settingsChange=true
+	end
+	
+	if(_GET.offset)then
+		timOffset=timOffset+tonumber(_GET.offset)
+		settingsChange=true
+	end
+	
+	
 
 	if(settingsChange)then
 		dofile("wordclock.lc")

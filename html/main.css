@@ -59,14 +59,15 @@ body{
 	background-color: #111;
 }
 .checkBox {
-	border: 10px solid #222;
-	color: #222;
+	border: none;
+	vertical-align: middle;
+	color: #fff;
 	margin: 5px;
 	padding: 0;
 	width: 100px;
 	height: 100px;
 	font-size: 20px;
-	background-color: #333;
+	background-color: #555;
 
 }
 a{

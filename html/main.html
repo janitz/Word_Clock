@@ -14,19 +14,19 @@
 			Word Clock
 		</div>
 		<div class="board">
-			<div class="name">Misc</div>
+			<div class="name">View Elements</div>
 			<div class="content" id="bg">
 				<button class="checkBox" id="esIst" onclick="buttonClicked(this);">ES IST</button>
 				<button class="checkBox" id="uhr" onclick="buttonClicked(this);">UHR</button>
 			</div>
 		</div>
 		<div class="board">
-			<div class="name">Presets</div>
+			<div class="name">Preset Colors</div>
 			<div class="content" id="presets">
 			</div>
 		</div>
 		<div class="board">
-			<div class="name">Foreground</div>
+			<div class="name">Foreground Color</div>
 			<div class="content" id="bg">
 				1
 				2
@@ -34,11 +34,25 @@
 			</div>
 		</div>
 		<div class="board">
-			<div class="name">Background</div>
+			<div class="name">Background Color</div>
 			<div class="content" id="bg">
 				1
 				2
 				polizei
+			</div>
+		</div>
+		<div class="board">
+			<div class="name">Background Color</div>
+			<div class="content" id="bg">
+				<button class="checkBox" onclick="send('utc=0&offset=7200');">German Summer Time</button>
+				<button class="checkBox" onclick="send('utc=0&offset=3600');">German Winter Time</button>
+				<button class="checkBox" onclick="send('offset=3600');">hour +1</button>
+				<button class="checkBox" onclick="send('offset=-3600');">hour -1</button>
+				<button class="checkBox" onclick="send('offset=60');">min +1</button>
+				<button class="checkBox" onclick="send('offset=-60');">min -1</button>
+				<button class="checkBox" onclick="send('offset=1');">sec +1</button>
+				<button class="checkBox" onclick="send('offset=-1');">sec -1</button>
+				<button class="checkBox" onclick="send('utc=0');">UTC</button>
 			</div>
 		</div>
 		<div>

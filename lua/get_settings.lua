@@ -9,4 +9,5 @@ colOff={
 	tonumber(string.sub(file.readline(),1,-2))}
 esIst=tonumber(string.sub(file.readline(),1,-2))~=0
 uhr=tonumber(string.sub(file.readline(),1,-2))~=0
+timOffset=tonumber(string.sub(file.readline(),1,-2))
 file.close()

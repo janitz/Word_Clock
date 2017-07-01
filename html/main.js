@@ -36,10 +36,10 @@ function buttonClicked(sender) {
 
 function updateBtnStyle(btn, active) {
 	if(active){
-		btn.style.border = "10px solid #fff";
-		btn.style.color = "#fff";
+		btn.style.background = "#ddd";
+		btn.style.color = "#444";
 	} else {
-		btn.style.border = "10px solid #222";
+		btn.style.background = "#444";
 		btn.style.color = "#222";
 	}
 }
