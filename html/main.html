@@ -16,43 +16,36 @@
 		<div class="board">
 			<div class="name">View Elements</div>
 			<div class="content" id="bg">
-				<button class="checkBox" id="esIst" onclick="buttonClicked(this);">ES IST</button>
-				<button class="checkBox" id="uhr" onclick="buttonClicked(this);">UHR</button>
+				<button class="stdBtn" id="esIst" onclick="buttonClicked(this);">ES IST</button>
+				<button class="stdBtn" id="uhr" onclick="buttonClicked(this);">UHR</button>
 			</div>
 		</div>
 		<div class="board">
 			<div class="name">Preset Colors</div>
-			<div class="content" id="presets">
-			</div>
+			<div class="content" id="presets"></div>
 		</div>
 		<div class="board">
 			<div class="name">Foreground Color</div>
-			<div class="content" id="bg">
-				1
-				2
-				polizei
-			</div>
+			<div class="content" id="fg"></div>
+			<div class="content">Custom Color<br><input type="color" class="stdBtn" id="fgInp" onchange="colChanged(this);"></div>
+		</div>
+		<div class="board">
+			<div class="name">Background Color</div>
+			<div class="content" id="bkg"></div>
+			<div class="content">Custom Color<br><input type="color" class="stdBtn" id="bgInp" onchange="colChanged(this);"></div>
 		</div>
 		<div class="board">
 			<div class="name">Background Color</div>
 			<div class="content" id="bg">
-				1
-				2
-				polizei
-			</div>
-		</div>
-		<div class="board">
-			<div class="name">Background Color</div>
-			<div class="content" id="bg">
-				<button class="checkBox" onclick="send('utc=0&offset=7200');">German Summer Time</button>
-				<button class="checkBox" onclick="send('utc=0&offset=3600');">German Winter Time</button>
-				<button class="checkBox" onclick="send('offset=3600');">hour +1</button>
-				<button class="checkBox" onclick="send('offset=-3600');">hour -1</button>
-				<button class="checkBox" onclick="send('offset=60');">min +1</button>
-				<button class="checkBox" onclick="send('offset=-60');">min -1</button>
-				<button class="checkBox" onclick="send('offset=1');">sec +1</button>
-				<button class="checkBox" onclick="send('offset=-1');">sec -1</button>
-				<button class="checkBox" onclick="send('utc=0');">UTC</button>
+				<button class="stdBtn" onclick="send('utc=0&offset=7200');">German Summer Time</button>
+				<button class="stdBtn" onclick="send('utc=0&offset=3600');">German Winter Time</button>
+				<button class="stdBtn" onclick="send('offset=3600');">hour +1</button>
+				<button class="stdBtn" onclick="send('offset=-3600');">hour -1</button>
+				<button class="stdBtn" onclick="send('offset=60');">min +1</button>
+				<button class="stdBtn" onclick="send('offset=-60');">min -1</button>
+				<button class="stdBtn" onclick="send('offset=1');">sec +1</button>
+				<button class="stdBtn" onclick="send('offset=-1');">sec -1</button>
+				<button class="stdBtn" onclick="send('utc=0');">UTC</button>
 			</div>
 		</div>
 		<div>

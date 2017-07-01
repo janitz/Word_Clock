@@ -127,7 +127,10 @@ local handle_request=function(conn,request)
 		sendFile(conn, responseTxt, "main.css")
 	elseif(path=="/main.js")then
 		setCt(ct.js)
-		responseTxt=responseTxt..'var esIst='..tostring(esIst)..';\r\nvar uhr='..tostring(uhr)..';\r\n\r\n'
+		responseTxt=responseTxt..'var esIst='..tostring(esIst)..';\r\n'
+		responseTxt=responseTxt..'var uhr='..tostring(uhr)..';\r\n'
+		responseTxt=responseTxt..'var colFg='..tostring((((colOn[2]*256)+colOn[1])*256)+colOn[3])..';\r\n'
+		responseTxt=responseTxt..'var colBg='..tostring((((colOff[2]*256)+colOff[1])*256)+colOff[3])..';\r\n\r\n'
 		sendFile(conn, responseTxt, "main.js", currState)
 	elseif(path=="/apple-touch-icon.png")then
 		setCt(ct.png)
